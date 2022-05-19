@@ -4,6 +4,8 @@ let dynamicHappy = 0;
 let dynamicSad = 0;
 let dynamicNormal = 0;
 var dynamicColor = 0;
+var width = window.innerWidth;
+var height = window.innerHeight;
 
 let video;
 let canvas
@@ -18,13 +20,13 @@ var sounds = [];
 
 /* loading sounds from the asset folder */
 function preload(p) {
-  sounds.push(p.loadSound("../assets/sound1.mp3"));
-  sounds.push(p.loadSound("../assets/sound2.mp3"));
-  sounds.push(p.loadSound("../assets/sound3.mp3"));
-  sounds.push(p.loadSound("../assets/sound4.mp3"));
-  sounds.push(p.loadSound("../assets/sound5.mp3"));
-  sounds.push(p.loadSound("../assets/sound6.mp3"));
-  sounds.push(p.loadSound("../assets/sound7.mp3"));
+  sounds.push(p.loadSound("assets/sound1.mp3"));
+  sounds.push(p.loadSound("assets/sound2.mp3"));
+  sounds.push(p.loadSound("assets/sound3.mp3"));
+  sounds.push(p.loadSound("assets/sound4.mp3"));
+  sounds.push(p.loadSound("assets/sound5.mp3"));
+  sounds.push(p.loadSound("assets/sound6.mp3"));
+  sounds.push(p.loadSound("assets/sound7.mp3"));
 }
 
 /* using the ml5.js face api model */
@@ -96,7 +98,7 @@ var c1 = function(p){
 var c2 = function(p){
     p.setup = function(){
       p.angleMode(p.DEGREES) /* otherwise they would be in PI */
-        var canvas = p.createCanvas(1920, 1080);
+        var canvas = p.createCanvas(width, height);
         canvas.parent('#sketch2');
         p.background(255,255, 255);
         preload(p); /* preloading the sounds */
@@ -177,7 +179,7 @@ function mycircle(p) {
     p.push();
     /* using blend mode to get special effects with the colours */
     p.blendMode(p.DIFFERENCE);
-    p.translate(960, 540);
+    p.translate(width/2, height/2);
     p.rotate(p.frameCount*0.1)
 
     /* console.log(dynamicColor);  */
